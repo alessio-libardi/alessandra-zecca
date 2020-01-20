@@ -1,0 +1,17 @@
+{
+  "extends": "../../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "chromosomexxPortfolio",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "chromosomexx-portfolio",
+      "kebab-case"
+    ]
+  }
+}

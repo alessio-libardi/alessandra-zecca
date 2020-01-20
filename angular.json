@@ -1,6 +1,111 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "ui-portfolio": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:class": {
+          "skipTests": true
+        },
+        "@nrwl/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@nrwl/angular:directive": {
+          "skipTests": true
+        },
+        "@nrwl/angular:guard": {
+          "skipTests": true
+        },
+        "@nrwl/angular:module": {
+          "skipTests": true
+        },
+        "@nrwl/angular:pipe": {
+          "skipTests": true
+        },
+        "@nrwl/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/ui/portfolio",
+      "sourceRoot": "apps/ui/portfolio/src",
+      "prefix": "chromosomexx-portfolio",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ui/portfolio",
+            "index": "apps/ui/portfolio/src/index.html",
+            "main": "apps/ui/portfolio/src/main.ts",
+            "polyfills": "apps/ui/portfolio/src/polyfills.ts",
+            "tsConfig": "apps/ui/portfolio/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/ui/portfolio/src/favicon.ico",
+              "apps/ui/portfolio/src/assets"
+            ],
+            "styles": ["apps/ui/portfolio/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ui/portfolio/src/environments/environment.ts",
+                  "with": "apps/ui/portfolio/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ui-portfolio:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ui-portfolio:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ui-portfolio:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/ui/portfolio/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/ui/portfolio/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
@@ -12,5 +117,6 @@
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
     }
-  }
+  },
+  "defaultProject": "ui-portfolio"
 }
