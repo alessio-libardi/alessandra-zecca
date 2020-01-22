@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: '10.x'
       - run: npm install
-      - run: npm run build ui-portfolio -- --configuration=production
+      - run: npm run affected:build -- --base=origin/master~2 --head=origin/master --configuration=production
       - uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting:admin,portfolio
