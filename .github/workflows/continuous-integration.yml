@@ -12,11 +12,4 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10.16.0
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v2
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: master
-        BRANCH: gh-pages
-        FOLDER: dist/apps/ui/portfolio
-        BUILD_SCRIPT: npm install && npm run build ui-portfolio -- --configuration=production
+        run: npm install && npm run format && npm run lint 
