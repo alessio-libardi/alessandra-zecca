@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "chromosomexx-904b8"
+  },
+  "targets": {
+    "chromosomexx-904b8": {
+      "hosting": {
+        "portfolio": [
+          "chromosomexx-portfolio"
+        ],
+        "admin": [
+          "chromosomexx-admin"
+        ]
+      }
+    }
+  }
+}
