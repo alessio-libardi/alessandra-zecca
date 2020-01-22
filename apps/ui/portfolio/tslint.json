@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "chromosomexxPortfolio",
+      "uiPortfolio",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "chromosomexx-portfolio",
+      "ui-portfolio",
       "kebab-case"
     ]
   }

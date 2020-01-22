@@ -13,7 +13,9 @@
   "projects": {
     "ui-portfolio": {
       "tags": []
+    },
+    "ui-admin": {
+      "tags": ["app", "ui"]
     }
   }
-
 }

@@ -29,7 +29,7 @@
       },
       "root": "apps/ui/portfolio",
       "sourceRoot": "apps/ui/portfolio/src",
-      "prefix": "chromosomexx-portfolio",
+      "prefix": "ui-portfolio",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -101,6 +101,110 @@
           "options": {
             "tsConfig": ["apps/ui/portfolio/tsconfig.app.json"],
             "exclude": ["**/node_modules/**", "!apps/ui/portfolio/**"]
+          }
+        }
+      }
+    },
+    "ui-admin": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:class": {
+          "skipTests": true
+        },
+        "@nrwl/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@nrwl/angular:directive": {
+          "skipTests": true
+        },
+        "@nrwl/angular:guard": {
+          "skipTests": true
+        },
+        "@nrwl/angular:module": {
+          "skipTests": true
+        },
+        "@nrwl/angular:pipe": {
+          "skipTests": true
+        },
+        "@nrwl/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/ui/admin",
+      "sourceRoot": "apps/ui/admin/src",
+      "prefix": "ui-admin",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ui/admin",
+            "index": "apps/ui/admin/src/index.html",
+            "main": "apps/ui/admin/src/main.ts",
+            "polyfills": "apps/ui/admin/src/polyfills.ts",
+            "tsConfig": "apps/ui/admin/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/ui/admin/src/favicon.ico",
+              "apps/ui/admin/src/assets"
+            ],
+            "styles": ["apps/ui/admin/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ui/admin/src/environments/environment.ts",
+                  "with": "apps/ui/admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ui-admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ui-admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ui-admin:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/ui/admin/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/ui/admin/**"]
           }
         }
       }
