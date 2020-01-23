@@ -17,7 +17,7 @@ jobs:
           key: ${{ hashFiles('~/package.json') }}
       - name: Cache Distributions Files
         uses: actions/cache@v1
-        id: cache-dependencies
+        id: cache-dist
         with:
           path: ~/dist
           key: dist
