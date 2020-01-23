@@ -20,6 +20,6 @@ jobs:
         uses: w9jds/firebase-action@master
         if: steps.cache-distributions-files.outputs.cache-hit != 'true'
         with:
-          args: deploy
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
