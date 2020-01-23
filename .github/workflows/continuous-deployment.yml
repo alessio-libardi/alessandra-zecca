@@ -13,13 +13,13 @@ jobs:
         uses: actions/cache@v1
         id: cache-dependencies
         with:
-          path: ~/node_modules
-          key: ${{ hashFiles('~/package.json') }}
+          path: ./node_modules
+          key: ${{ hashFiles('./package.json') }}
       - name: Cache Distributions Files
         uses: actions/cache@v1
         id: cache-dist
         with:
-          path: ~/dist
+          path: ./dist
           key: dist
       - uses: actions/setup-node@master
         with:
