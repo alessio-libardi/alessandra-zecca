@@ -1,35 +1,25 @@
 name: Continuous Delivery
-
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [published]
 
 jobs:
-  build:
-
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@master
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Cache Distribution Files
+        uses: actions/cache@v1
+        id: cache-dist
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: Release Test
-          draft: false
-          prerelease: false
-      - uses: actions/setup-node@master
+          path: ~/dist
+          key: dist
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        if: steps.cache-distributions-files.outputs.cache-hit != 'true'
         with:
-          node-version: '10.x'
-      - run: npm install
-      - run: npm run build ui-portfolio -- --configuration=production && npm run build ui-admin -- --configuration=production
-      - uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting:admin,portfolio
+          args: deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
