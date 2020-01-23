@@ -1,7 +1,8 @@
 name: Continuous Delivery
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - production
 
 jobs:
   deploy:
@@ -14,11 +15,11 @@ jobs:
         uses: actions/cache@v1
         id: cache-dist
         with:
-          path: ~/dist
+          path: dist
           key: dist
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
-        if: steps.cache-distributions-files.outputs.cache-hit != 'true'
+        if: steps.cache-dist.outputs.cache-hit == 'true'
         with:
           args: deploy --only hosting
         env:
