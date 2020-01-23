@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Cache Dependencies
 
 on:
   push:
@@ -24,14 +24,14 @@ jobs:
   firebase:
     name: Cache Firebase Dependencies
     runs-on: ubuntu-latest
-    working-directory: ./functions
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
         run: npm install
+        working-directory: ./functions
       - name: Cache Dependencies
         uses: actions/cache@master
         with:
           name: firebase-node_modules
-          path: node_modules
+          path: ./functions/node_modules
