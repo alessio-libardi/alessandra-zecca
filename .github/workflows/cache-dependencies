@@ -1,1 +1,37 @@
+name: Continuous Integration
 
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '**/package.json'
+
+jobs:
+  workspace:
+    name: Cache Workspace Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm install
+      - name: Cache Dependencies
+        uses: actions/cache@master
+        with:
+          name: workspace-node_modules
+          path: node_modules
+  firebase:
+    name: Cache Firebase Dependencies
+    runs-on: ubuntu-latest
+    working-directory: ./functions
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm install
+      - name: Cache Dependencies
+        uses: actions/cache@master
+        with:
+          name: firebase-node_modules
+          path: node_modules
