@@ -1,18 +1,61 @@
 name: Continuous Integration
 
-on: 
-  push:
-    tags-ignore:
-      - 'v*'
+on:
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  build:
-
+  format:
+    name: Format
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 10.16.0
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.16.0
-        run: npm install && npm run format && npm run lint 
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+
+      - name: Cache Dependencies
+        uses: actions/cache@v1
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ hashFiles('package-lock.json') }}
+
+      - name: Install Dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+          if: steps.cache-dependencies.outputs.cache-hit != 'true'
+          run: npm install
+
+      - name: Format
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+          run: npm run format:check -- --base=github.base_ref --head=github.head_ref
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+
+      - name: Cache Dependencies
+        uses: actions/cache@v1
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ hashFiles('package-lock.json') }}
+
+      - name: Install Dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+          if: steps.cache-dependencies.outputs.cache-hit != 'true'
+          run: npm install
+
+      - name: Lint
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+          run: npm run affected:lint -- --base=github.base_ref --head=github.head_ref --parallel
