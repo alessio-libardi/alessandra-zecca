@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v1
+    - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
       - name: Cache Dependencies
         uses: actions/cache@v1
