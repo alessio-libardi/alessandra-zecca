@@ -9,9 +9,6 @@ jobs:
   install-dependencies:
     name: Install Dependencies
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
 
     steps:
       - name: Checkout Repository
@@ -24,13 +21,14 @@ jobs:
           path: node_modules
           key: ${{ hashFiles('package-lock.json') }}
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '12.x'
 
       - name: Install Dependencies
         run: npm install
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
 
   format:
     name: Format
@@ -47,11 +45,14 @@ jobs:
           path: node_modules
           key: ${{ hashFiles('package-lock.json') }}
 
-      - name: Format
+      - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
-          run: npm run format:check -- --base=github.base_ref --head=github.head_ref
+          node-version: '12.x'
+
+      - name: Format
+        uses: actions/setup-node@v1
+        run: npm run format:check -- --base=github.base_ref --head=github.head_ref
 
   lint:
     name: Lint
@@ -68,8 +69,11 @@ jobs:
           path: node_modules
           key: ${{ hashFiles('package-lock.json') }}
 
-      - name: Lint
+      - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
-          run: npm run affected:lint -- --base=github.base_ref --head=github.head_ref --parallel
+          node-version: '12.x'
+
+      - name: Lint
+        uses: actions/setup-node@v1
+        run: npm run affected:lint -- --base=github.base_ref --head=github.head_ref --parallel
