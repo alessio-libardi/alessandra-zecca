@@ -51,7 +51,6 @@ jobs:
           node-version: '12.x'
 
       - name: Format
-        uses: actions/setup-node@v1
         run: npm run format:check -- --base=github.base_ref --head=github.head_ref
 
   lint:
@@ -75,5 +74,4 @@ jobs:
           node-version: '12.x'
 
       - name: Lint
-        uses: actions/setup-node@v1
         run: npm run affected:lint -- --base=github.base_ref --head=github.head_ref --parallel
