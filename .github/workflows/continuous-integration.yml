@@ -54,6 +54,10 @@ jobs:
         with:
           node-version: '12.x'
 
+      - name: Install Dependencies
+        run: npm install
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+
       - name: Format
         run: npm run format:check -- --base=github.base_ref --head=github.head_ref
 
