@@ -58,7 +58,7 @@ jobs:
         run: npm install
 
       - name: Format
-        run: npm run format:check -- --base=github.base_ref --head=github.head_ref
+        run: npm run format:check -- --base={{ github.base_ref }} --head={{ github.head_ref }}
 
   lint:
     name: Lint
@@ -83,4 +83,4 @@ jobs:
           node-version: '12.x'
 
       - name: Lint
-        run: npm run affected:lint -- --base=github.base_ref --head=github.head_ref --parallel
+        run: npm run affected:lint -- --base={{ github.base_ref }} --head={{ github.head_ref }} --parallel
