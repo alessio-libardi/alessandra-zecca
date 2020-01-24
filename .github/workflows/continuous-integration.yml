@@ -13,10 +13,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v1
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
 
       - name: Cache Dependencies
         uses: actions/cache@v1
@@ -62,7 +58,7 @@ jobs:
         run: npm ci
 
       - name: Format
-        run: npm run format:check -- --base=origin/$GITHUB_BASE_REF --head=$GITHUB_HEAD_REF
+        run: npm run format:check -- --base=origin/$GITHUB_BASE_REF --head=origin/$GITHUB_HEAD_REF
 
   lint:
     name: Lint
@@ -90,4 +86,4 @@ jobs:
         run: npm ci
 
       - name: Lint
-        run: npm run affected:lint -- --base=origin/$GITHUB_BASE_REF --head=$GITHUB_HEAD_REF --parallel
+        run: npm run affected:lint -- --base=origin/$GITHUB_BASE_REF --head=origin/$GITHUB_HEAD_REF --parallel
