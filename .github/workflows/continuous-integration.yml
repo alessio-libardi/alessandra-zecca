@@ -9,6 +9,10 @@ jobs:
   install-dependencies:
     name: Install Dependencies
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v1
@@ -20,17 +24,13 @@ jobs:
           path: node_modules
           key: ${{ hashFiles('package-lock.json') }}
 
-      - name: Install Dependencies
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
-          run: npm install
+          node-version: ${{ matrix.node-version }}
+
       - name: Install Dependencies
-        uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-          if: steps.cache-dependencies.outputs.cache-hit != 'true'
-          run: npm install
+        run: npm install
 
   format:
     name: Format
