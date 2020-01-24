@@ -27,11 +27,16 @@ jobs:
           if: steps.cache-dependencies.outputs.cache-hit != 'true'
           run: npm install
 
-      - name: Format and Lint
+      - name: Format
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'
           run: npm run format:check -- --base=github.base_ref --head=github.head_ref
+
+      - name: Lint
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
           run: npm run affected:lint -- --base=github.base_ref --head=github.head_ref
 
       - name: Dump GitHub context
