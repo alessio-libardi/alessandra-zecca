@@ -1,7 +1,7 @@
 name: Continuous Integration
 
 on:
-  pull_request:
+  push:
     branches:
       - master
 
@@ -58,7 +58,7 @@ jobs:
         run: npm ci
 
       - name: Format
-        run: npm run format:check -- --base=$GITHUB_BASE_REF --head=$GITHUB_HEAD_REF
+        run: npm run format:check --
 
   lint:
     name: Lint
@@ -86,4 +86,4 @@ jobs:
         run: npm ci
         
       - name: Lint
-        run: npm run affected:lint -- --base=$GITHUB_BASE_REF --head=$GITHUB_HEAD_REF --parallel
+        run: npm run affected:lint -- --parallel
