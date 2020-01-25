@@ -1,17 +1,7 @@
 {
   "extends": "../../../tslint.json",
   "rules": {
-    "directive-selector": [
-      true,
-      "attribute",
-      "uiPortfolio",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "ui-portfolio",
-      "kebab-case"
-    ]
+    "directive-selector": [true, "attribute", "uiPortfolio", "camelCase"],
+    "component-selector": [true, "element", "ui-portfolio", "kebab-case"]
   }
 }
