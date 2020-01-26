@@ -57,8 +57,13 @@
     "@angular/cli": "8.3.14",
     "@angular/compiler-cli": "^8.2.0",
     "@angular/language-service": "^8.2.0",
+    "@nestjs/schematics": "^6.7.0",
+    "@nestjs/testing": "^6.8.3",
+    "@nrwl/cli": "^8.11.2",
     "@nrwl/cypress": "8.11.2",
     "@nrwl/jest": "8.11.2",
+    "@nrwl/nest": "8.11.2",
+    "@nrwl/node": "8.11.2",
     "@nrwl/workspace": "8.11.2",
     "@types/jest": "24.0.9",
     "@types/node": "~8.9.4",
@@ -71,11 +76,7 @@
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.5.3",
-    "@nrwl/node": "8.11.2",
-    "@nestjs/schematics": "^6.7.0",
-    "@nestjs/testing": "^6.8.3",
-    "@nrwl/nest": "8.11.2"
+    "typescript": "~3.5.3"
   },
   "main": "dist/apps/server/ssr/main.js",
   "engines": {
