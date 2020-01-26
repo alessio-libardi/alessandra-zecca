@@ -1,14 +1,11 @@
 {
   "functions": {
-    "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint",
-      "npm --prefix \"$RESOURCE_DIR\" run build"
-    ]
+    "source": "/"
   },
   "hosting": [
     {
       "target": "admin",
-      "public": "dist/apps/ui/admin",
+      "public": "dist/apps/client/admin",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -19,12 +16,16 @@
     },
     {
       "target": "portfolio",
-      "public": "dist/apps/ui/portfolio",
+      "public": "dist/apps/client/portfolio",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
-          "source": "**",
+          "source": "**/*.@(css|js)",
           "destination": "/index.html"
+        },
+        {
+          "source": "**",
+          "function": "ssr"
         }
       ]
     }

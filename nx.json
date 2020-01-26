@@ -11,11 +11,14 @@
     "nx.json": "*"
   },
   "projects": {
-    "ui-portfolio": {
-      "tags": []
+    "server-ssr": {
+      "tags": ["app", "server"]
     },
-    "ui-admin": {
-      "tags": ["app", "ui"]
+    "client-admin": {
+      "tags": ["app", "client"]
+    },
+    "client-portfolio": {
+      "tags": ["app", "client"]
     }
   }
 }
