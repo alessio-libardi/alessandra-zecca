@@ -208,6 +208,50 @@
           }
         }
       }
+    },
+    "server-ssr": {
+      "root": "apps/server/ssr",
+      "sourceRoot": "apps/server/ssr/src",
+      "projectType": "application",
+      "prefix": "server-ssr",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/server/ssr",
+            "main": "apps/server/ssr/src/main.ts",
+            "tsConfig": "apps/server/ssr/tsconfig.app.json",
+            "assets": ["apps/server/ssr/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/server/ssr/src/environments/environment.ts",
+                  "with": "apps/server/ssr/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "server-ssr:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/server/ssr/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/server/ssr/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

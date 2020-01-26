@@ -16,6 +16,9 @@
     },
     "ui-admin": {
       "tags": ["app", "ui"]
+    },
+    "server-ssr": {
+      "tags": ["app", "server"]
     }
   }
 }
