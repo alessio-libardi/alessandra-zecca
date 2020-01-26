@@ -1,214 +1,6 @@
 {
   "version": 1,
   "projects": {
-    "ui-portfolio": {
-      "projectType": "application",
-      "schematics": {
-        "@nrwl/angular:class": {
-          "skipTests": true
-        },
-        "@nrwl/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@nrwl/angular:directive": {
-          "skipTests": true
-        },
-        "@nrwl/angular:guard": {
-          "skipTests": true
-        },
-        "@nrwl/angular:module": {
-          "skipTests": true
-        },
-        "@nrwl/angular:pipe": {
-          "skipTests": true
-        },
-        "@nrwl/angular:service": {
-          "skipTests": true
-        }
-      },
-      "root": "apps/ui/portfolio",
-      "sourceRoot": "apps/ui/portfolio/src",
-      "prefix": "ui-portfolio",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/ui/portfolio",
-            "index": "apps/ui/portfolio/src/index.html",
-            "main": "apps/ui/portfolio/src/main.ts",
-            "polyfills": "apps/ui/portfolio/src/polyfills.ts",
-            "tsConfig": "apps/ui/portfolio/tsconfig.app.json",
-            "aot": false,
-            "assets": [
-              "apps/ui/portfolio/src/favicon.ico",
-              "apps/ui/portfolio/src/assets"
-            ],
-            "styles": ["apps/ui/portfolio/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/ui/portfolio/src/environments/environment.ts",
-                  "with": "apps/ui/portfolio/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ui-portfolio:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ui-portfolio:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ui-portfolio:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["apps/ui/portfolio/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**", "!apps/ui/portfolio/**"]
-          }
-        }
-      }
-    },
-    "ui-admin": {
-      "projectType": "application",
-      "schematics": {
-        "@nrwl/angular:class": {
-          "skipTests": true
-        },
-        "@nrwl/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@nrwl/angular:directive": {
-          "skipTests": true
-        },
-        "@nrwl/angular:guard": {
-          "skipTests": true
-        },
-        "@nrwl/angular:module": {
-          "skipTests": true
-        },
-        "@nrwl/angular:pipe": {
-          "skipTests": true
-        },
-        "@nrwl/angular:service": {
-          "skipTests": true
-        }
-      },
-      "root": "apps/ui/admin",
-      "sourceRoot": "apps/ui/admin/src",
-      "prefix": "ui-admin",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/ui/admin",
-            "index": "apps/ui/admin/src/index.html",
-            "main": "apps/ui/admin/src/main.ts",
-            "polyfills": "apps/ui/admin/src/polyfills.ts",
-            "tsConfig": "apps/ui/admin/tsconfig.app.json",
-            "aot": false,
-            "assets": [
-              "apps/ui/admin/src/favicon.ico",
-              "apps/ui/admin/src/assets"
-            ],
-            "styles": ["apps/ui/admin/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/ui/admin/src/environments/environment.ts",
-                  "with": "apps/ui/admin/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ui-admin:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ui-admin:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ui-admin:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["apps/ui/admin/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**", "!apps/ui/admin/**"]
-          }
-        }
-      }
-    },
     "server-ssr": {
       "root": "apps/server/ssr",
       "sourceRoot": "apps/server/ssr/src",
@@ -250,6 +42,275 @@
             "tsConfig": ["apps/server/ssr/tsconfig.app.json"],
             "exclude": ["**/node_modules/**", "!apps/server/ssr/**"]
           }
+        },
+        "deploy": {
+          "builder": "@angular-devkit/architect:concat",
+          "options": {
+            "targets": [
+              { "target": "server-ssr:build" }
+            ]
+          }
+        }
+      }
+    },
+    "client-admin": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:class": {
+          "skipTests": true
+        },
+        "@nrwl/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@nrwl/angular:directive": {
+          "skipTests": true
+        },
+        "@nrwl/angular:guard": {
+          "skipTests": true
+        },
+        "@nrwl/angular:module": {
+          "skipTests": true
+        },
+        "@nrwl/angular:pipe": {
+          "skipTests": true
+        },
+        "@nrwl/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/client/admin",
+      "sourceRoot": "apps/client/admin/src",
+      "prefix": "client-admin",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/client/admin",
+            "index": "apps/client/admin/src/index.html",
+            "main": "apps/client/admin/src/main.ts",
+            "polyfills": "apps/client/admin/src/polyfills.ts",
+            "tsConfig": "apps/client/admin/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/client/admin/src/favicon.ico",
+              "apps/client/admin/src/assets"
+            ],
+            "styles": ["apps/client/admin/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/client/admin/src/environments/environment.ts",
+                  "with": "apps/client/admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "client-admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "client-admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "client-admin:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/client/admin/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/client/admin/**"]
+          }
+        },
+        "deploy": {
+          "builder": "@angular-devkit/architect:concat",
+          "options": {
+            "targets": [
+              { "target": "client-admin:build" }
+            ]
+          }
+        }
+      }
+    },
+    "client-portfolio": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:class": {
+          "skipTests": true
+        },
+        "@nrwl/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@nrwl/angular:directive": {
+          "skipTests": true
+        },
+        "@nrwl/angular:guard": {
+          "skipTests": true
+        },
+        "@nrwl/angular:module": {
+          "skipTests": true
+        },
+        "@nrwl/angular:pipe": {
+          "skipTests": true
+        },
+        "@nrwl/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/client/portfolio",
+      "sourceRoot": "apps/client/portfolio/src",
+      "prefix": "client-portfolio",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/client/portfolio",
+            "index": "apps/client/portfolio/src/index.html",
+            "main": "apps/client/portfolio/src/main.ts",
+            "polyfills": "apps/client/portfolio/src/polyfills.ts",
+            "tsConfig": "apps/client/portfolio/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/client/portfolio/src/favicon.ico",
+              "apps/client/portfolio/src/assets"
+            ],
+            "styles": ["apps/client/portfolio/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/client/portfolio/src/environments/environment.ts",
+                  "with": "apps/client/portfolio/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "client-portfolio:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "client-portfolio:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "client-portfolio:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/client/portfolio/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/client/portfolio/**"]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/apps/client/portfolio/server",
+            "main": "apps/client/portfolio/src/main.server.ts",
+            "tsConfig": "apps/client/portfolio/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/client/portfolio/src/environments/environment.ts",
+                  "with": "apps/client/portfolio/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
+            }
+          }
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "client-portfolio:build",
+            "serverTarget": "client-portfolio:server",
+            "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "client-portfolio:build:production",
+              "serverTarget": "client-portfolio:server:production"
+            }
+          }
+        },
+        "deploy": {
+          "builder": "@angular-devkit/architect:concat",
+          "options": {
+            "targets": [
+              { "target": "client-portfolio:app-shell" }
+            ]
+          }
         }
       }
     }
@@ -266,5 +327,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "ui-portfolio"
+  "defaultProject": "client-portfolio"
 }

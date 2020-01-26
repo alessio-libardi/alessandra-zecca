@@ -7,15 +7,11 @@ on:
       - production
 
 jobs:
-  build:
-    name: Build
+  deploy:
+    name: Deploy and Build
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
       - name: Checkout Repository
         uses: actions/checkout@master
 
@@ -42,51 +38,17 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run affected:build -- --base=origin/$GITHUB_BASE_REF~1 --head=origin/$GITHUB_BASE_REF --configuration=$GITHUB_BASE_REF --parallel
+        run: npm run affected:deploy -- --base=origin/$GITHUB_BASE_REF~1 --head=origin/$GITHUB_BASE_REF --configuration=$GITHUB_BASE_REF --parallel
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: dist
-          path: dist
+      - name: Deploy Portfolio SSR Server
+        run: firebase deploy --only functions:ssr --token ${{ secrets.FIREBASE_TOKEN }}
+        if: always()
 
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
+      - name: Deploy Admin Client
+        run: firebase deploy --only hostings:admin --token ${{ secrets.FIREBASE_TOKEN }}
+        if: always()
 
-      - name: Download Artifact
-        uses: actions/download-artifact@master
-        with:
-          name: dist
-
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
-      - name: Get dependencies cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache Dependencies
-        uses: actions/cache@v1
-        id: cache-dependencies
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Deploy
-        env:
-          hostings: npm run affected:apps -- --base=origin/$GITHUB_BASE_REF~1 --head=origin/$GITHUB_BASE_REF --plain
-        run: firebase deploy --only hosting:$hostings --token ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy Portfolio Client
+        run: firebase deploy --only hostings:portfolio --token ${{ secrets.FIREBASE_TOKEN }}
+        if: always()
 

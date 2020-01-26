@@ -38,4 +38,4 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run affected:build -- --base=origin/$GITHUB_BASE_REF --head=origin/$GITHUB_HEAD_REF --configuration=$GITHUB_BASE_REF --parallel
+        run: npm run affected:deploy -- --base=origin/$GITHUB_BASE_REF --head=origin/$GITHUB_HEAD_REF --configuration=$GITHUB_BASE_REF --parallel
