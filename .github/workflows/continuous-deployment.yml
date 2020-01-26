@@ -14,8 +14,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
-        run: |
-          git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+
+      - name: Fetch all branches
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
       - name: Use Node.js
         uses: actions/setup-node@v1
