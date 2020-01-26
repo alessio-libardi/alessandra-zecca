@@ -46,9 +46,7 @@
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [
-              { "target": "server-ssr:build" }
-            ]
+            "targets": [{ "target": "server-ssr:build" }]
           }
         }
       }
@@ -158,9 +156,7 @@
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [
-              { "target": "client-admin:build" }
-            ]
+            "targets": [{ "target": "client-admin:build" }]
           }
         }
       }
@@ -307,9 +303,7 @@
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [
-              { "target": "client-portfolio:app-shell" }
-            ]
+            "targets": [{ "target": "client-portfolio:app-shell" }]
           }
         }
       }
