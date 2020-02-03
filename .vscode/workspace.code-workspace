@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "name": "Workspace",
+      "path": ".."
+    },
+    {
+      "name": "Apps",
+      "path": "../apps"
+    },
+    {
+      "name": "Libraries",
+      "path": "../libs"
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "vsicons.presets.angular": true
+  }
+}

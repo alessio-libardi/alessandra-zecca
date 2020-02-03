@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'client-portfolio-root',
+  selector: 'clients-portfolio-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'client-portfolio';
+  title = 'clients-portfolio';
 }

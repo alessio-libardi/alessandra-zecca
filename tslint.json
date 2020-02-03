@@ -56,8 +56,24 @@
         "allow": [],
         "depConstraints": [
           {
-            "sourceTag": "*",
-            "onlyDependOnLibsWithTags": ["*"]
+            "sourceTag": "app",
+            "onlyDependOnLibsWithTags": ["lib"]
+          },
+          {
+            "sourceTag": "lib",
+            "onlyDependOnLibsWithTags": ["lib"]
+          },
+          {
+            "sourceTag": "client",
+            "onlyDependOnLibsWithTags": ["client", "shared"]
+          },
+          {
+            "sourceTag": "server",
+            "onlyDependOnLibsWithTags": ["server", "shared"]
+          },
+          {
+            "sourceTag": "shared",
+            "onlyDependOnLibsWithTags": ["shared"]
           }
         ]
       }

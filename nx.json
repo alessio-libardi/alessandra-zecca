@@ -1,5 +1,5 @@
 {
-  "npmScope": "chromosomexx",
+  "npmScope": "alessandra-zecca",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
@@ -11,13 +11,13 @@
     "nx.json": "*"
   },
   "projects": {
-    "server-ssr": {
+    "servers-ssr": {
       "tags": ["app", "server"]
     },
-    "client-admin": {
+    "clients-admin": {
       "tags": ["app", "client"]
     },
-    "client-portfolio": {
+    "clients-portfolio": {
       "tags": ["app", "client"]
     }
   }

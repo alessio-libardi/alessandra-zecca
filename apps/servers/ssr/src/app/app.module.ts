@@ -9,13 +9,13 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 import { join, resolve } from 'path';
 
-const BROWSER_DIR = join(process.cwd(), 'dist/apps/client/portfolio');
+const BROWSER_DIR = join(process.cwd(), 'dist/apps/clients/portfolio');
 applyDomino(global, join(BROWSER_DIR, 'index.html'));
 
 const {
   AppServerModuleNgFactory,
   LAZY_MODULE_MAP
-} = require('/dist/apps/client/portfolio/server/main.js');
+} = require('/dist/apps/clients/portfolio/server/main.js');
 
 const OPTIONS: AngularUniversalOptions = {
   viewsPath: BROWSER_DIR,

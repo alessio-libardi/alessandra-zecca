@@ -5,7 +5,7 @@
   "hosting": [
     {
       "target": "admin",
-      "public": "dist/apps/client/admin",
+      "public": "dist/apps/clients/admin",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -16,7 +16,7 @@
     },
     {
       "target": "portfolio",
-      "public": "dist/apps/client/portfolio",
+      "public": "dist/apps/clients/portfolio",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
