@@ -19,6 +19,9 @@
     },
     "clients-portfolio": {
       "tags": ["app", "client"]
+    },
+    "clients-admin-feature-shell-shell": {
+      "tags": ["lib", "client", "admin"]
     }
   }
 }

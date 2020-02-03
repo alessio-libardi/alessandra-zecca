@@ -46,7 +46,11 @@
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [{ "target": "servers-ssr:build" }]
+            "targets": [
+              {
+                "target": "servers-ssr:build"
+              }
+            ]
           }
         }
       }
@@ -156,7 +160,11 @@
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [{ "target": "clients-admin:build:production" }]
+            "targets": [
+              {
+                "target": "clients-admin:build:production"
+              }
+            ]
           }
         }
       }
@@ -303,8 +311,37 @@
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [{ "target": "clients-portfolio:app-shell:production" }]
+            "targets": [
+              {
+                "target": "clients-portfolio:app-shell:production"
+              }
+            ]
           }
+        }
+      }
+    },
+    "clients-admin-feature-shell-shell": {
+      "projectType": "library",
+      "root": "libs/clients/admin/feature-shell/shell",
+      "sourceRoot": "libs/clients/admin/feature-shell/shell/src",
+      "prefix": "alessandra-zecca",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/clients/admin/feature-shell/shell/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/clients/admin/feature-shell/shell/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }
