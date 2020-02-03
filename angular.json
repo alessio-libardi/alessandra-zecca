@@ -1,20 +1,20 @@
 {
   "version": 1,
   "projects": {
-    "server-ssr": {
-      "root": "apps/server/ssr",
-      "sourceRoot": "apps/server/ssr/src",
+    "servers-ssr": {
+      "root": "apps/servers/ssr",
+      "sourceRoot": "apps/servers/ssr/src",
       "projectType": "application",
-      "prefix": "server-ssr",
+      "prefix": "servers-ssr",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/server/ssr",
-            "main": "apps/server/ssr/src/main.ts",
-            "tsConfig": "apps/server/ssr/tsconfig.app.json",
-            "assets": ["apps/server/ssr/src/assets"]
+            "outputPath": "dist/apps/servers/ssr",
+            "main": "apps/servers/ssr/src/main.ts",
+            "tsConfig": "apps/servers/ssr/tsconfig.app.json",
+            "assets": ["apps/servers/ssr/src/assets"]
           },
           "configurations": {
             "production": {
@@ -23,8 +23,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/server/ssr/src/environments/environment.ts",
-                  "with": "apps/server/ssr/src/environments/environment.prod.ts"
+                  "replace": "apps/servers/ssr/src/environments/environment.ts",
+                  "with": "apps/servers/ssr/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -33,27 +33,25 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "server-ssr:build"
+            "buildTarget": "servers-ssr:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/server/ssr/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**", "!apps/server/ssr/**"]
+            "tsConfig": ["apps/servers/ssr/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/servers/ssr/**"]
           }
         },
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [
-              { "target": "server-ssr:build" }
-            ]
+            "targets": [{ "target": "servers-ssr:build" }]
           }
         }
       }
     },
-    "client-admin": {
+    "clients-admin": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:class": {
@@ -79,32 +77,32 @@
           "skipTests": true
         }
       },
-      "root": "apps/client/admin",
-      "sourceRoot": "apps/client/admin/src",
-      "prefix": "client-admin",
+      "root": "apps/clients/admin",
+      "sourceRoot": "apps/clients/admin/src",
+      "prefix": "clients-admin",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/client/admin",
-            "index": "apps/client/admin/src/index.html",
-            "main": "apps/client/admin/src/main.ts",
-            "polyfills": "apps/client/admin/src/polyfills.ts",
-            "tsConfig": "apps/client/admin/tsconfig.app.json",
+            "outputPath": "dist/apps/clients/admin",
+            "index": "apps/clients/admin/src/index.html",
+            "main": "apps/clients/admin/src/main.ts",
+            "polyfills": "apps/clients/admin/src/polyfills.ts",
+            "tsConfig": "apps/clients/admin/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "apps/client/admin/src/favicon.ico",
-              "apps/client/admin/src/assets"
+              "apps/clients/admin/src/favicon.ico",
+              "apps/clients/admin/src/assets"
             ],
-            "styles": ["apps/client/admin/src/styles.scss"],
+            "styles": ["apps/clients/admin/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/client/admin/src/environments/environment.ts",
-                  "with": "apps/client/admin/src/environments/environment.prod.ts"
+                  "replace": "apps/clients/admin/src/environments/environment.ts",
+                  "with": "apps/clients/admin/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -134,36 +132,36 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "client-admin:build"
+            "browserTarget": "clients-admin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "client-admin:build:production"
+              "browserTarget": "clients-admin:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "client-admin:build"
+            "browserTarget": "clients-admin:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/client/admin/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**", "!apps/client/admin/**"]
+            "tsConfig": ["apps/clients/admin/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/clients/admin/**"]
           }
         },
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [{ "target": "client-admin:build:production" }]
+            "targets": [{ "target": "clients-admin:build:production" }]
           }
         }
       }
     },
-    "client-portfolio": {
+    "clients-portfolio": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:class": {
@@ -189,32 +187,32 @@
           "skipTests": true
         }
       },
-      "root": "apps/client/portfolio",
-      "sourceRoot": "apps/client/portfolio/src",
-      "prefix": "client-portfolio",
+      "root": "apps/clients/portfolio",
+      "sourceRoot": "apps/clients/portfolio/src",
+      "prefix": "clients-portfolio",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/client/portfolio",
-            "index": "apps/client/portfolio/src/index.html",
-            "main": "apps/client/portfolio/src/main.ts",
-            "polyfills": "apps/client/portfolio/src/polyfills.ts",
-            "tsConfig": "apps/client/portfolio/tsconfig.app.json",
+            "outputPath": "dist/apps/clients/portfolio",
+            "index": "apps/clients/portfolio/src/index.html",
+            "main": "apps/clients/portfolio/src/main.ts",
+            "polyfills": "apps/clients/portfolio/src/polyfills.ts",
+            "tsConfig": "apps/clients/portfolio/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "apps/client/portfolio/src/favicon.ico",
-              "apps/client/portfolio/src/assets"
+              "apps/clients/portfolio/src/favicon.ico",
+              "apps/clients/portfolio/src/assets"
             ],
-            "styles": ["apps/client/portfolio/src/styles.scss"],
+            "styles": ["apps/clients/portfolio/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/client/portfolio/src/environments/environment.ts",
-                  "with": "apps/client/portfolio/src/environments/environment.prod.ts"
+                  "replace": "apps/clients/portfolio/src/environments/environment.ts",
+                  "with": "apps/clients/portfolio/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -244,40 +242,40 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "client-portfolio:build"
+            "browserTarget": "clients-portfolio:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "client-portfolio:build:production:production"
+              "browserTarget": "clients-portfolio:build:production:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "client-portfolio:build"
+            "browserTarget": "clients-portfolio:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/client/portfolio/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**", "!apps/client/portfolio/**"]
+            "tsConfig": ["apps/clients/portfolio/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/clients/portfolio/**"]
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/apps/client/portfolio/server",
-            "main": "apps/client/portfolio/src/main.server.ts",
-            "tsConfig": "apps/client/portfolio/tsconfig.server.json"
+            "outputPath": "dist/apps/clients/portfolio/server",
+            "main": "apps/clients/portfolio/src/main.server.ts",
+            "tsConfig": "apps/clients/portfolio/tsconfig.server.json"
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/client/portfolio/src/environments/environment.ts",
-                  "with": "apps/client/portfolio/src/environments/environment.prod.ts"
+                  "replace": "apps/clients/portfolio/src/environments/environment.ts",
+                  "with": "apps/clients/portfolio/src/environments/environment.prod.ts"
                 }
               ],
               "sourceMap": false,
@@ -291,21 +289,21 @@
         "app-shell": {
           "builder": "@angular-devkit/build-angular:app-shell",
           "options": {
-            "browserTarget": "client-portfolio:build",
-            "serverTarget": "client-portfolio:server",
+            "browserTarget": "clients-portfolio:build",
+            "serverTarget": "clients-portfolio:server",
             "route": "shell"
           },
           "configurations": {
             "production": {
-              "browserTarget": "client-portfolio:build:production",
-              "serverTarget": "client-portfolio:server:production"
+              "browserTarget": "clients-portfolio:build:production",
+              "serverTarget": "clients-portfolio:server:production"
             }
           }
         },
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [{ "target": "client-portfolio:app-shell:production" }]
+            "targets": [{ "target": "clients-portfolio:app-shell:production" }]
           }
         }
       }
@@ -323,5 +321,5 @@
       "unitTestRunner": "none"
     }
   },
-  "defaultProject": "client-portfolio"
+  "defaultProject": "clients-admin"
 }

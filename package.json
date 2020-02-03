@@ -1,5 +1,5 @@
 {
-  "name": "chromosomexx",
+  "name": "alessandra-zecca",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -77,7 +77,7 @@
     "tslint": "~5.11.0",
     "typescript": "~3.5.3"
   },
-  "main": "dist/apps/server/ssr/main.js",
+  "main": "dist/apps/servers/ssr/main.js",
   "engines": {
     "node": "10"
   }
