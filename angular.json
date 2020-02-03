@@ -394,6 +394,31 @@
           "styleext": "scss"
         }
       }
+    },
+    "clients-admin-feature-main-main": {
+      "projectType": "library",
+      "root": "libs/clients/admin/feature-main/main",
+      "sourceRoot": "libs/clients/admin/feature-main/main/src",
+      "prefix": "admin-main",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/clients/admin/feature-main/main/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/clients/admin/feature-main/main/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
