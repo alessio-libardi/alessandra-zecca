@@ -28,6 +28,9 @@
     },
     "clients-admin-feature-shell-shell": {
       "tags": ["lib", "client", "shell"]
+    },
+    "clients-admin-feature-main-main": {
+      "tags": ["lib", "client", "admin"]
     }
   }
 }
