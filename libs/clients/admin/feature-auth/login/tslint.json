@@ -1,0 +1,7 @@
+{
+  "extends": "../../../../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "adminLogin", "camelCase"],
+    "component-selector": [true, "element", "admin-login", "kebab-case"]
+  }
+}

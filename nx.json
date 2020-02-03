@@ -20,8 +20,14 @@
     "clients-portfolio": {
       "tags": ["app", "client"]
     },
+    "clients-admin-feature-auth-logout": {
+      "tags": ["lib", "client", "auth"]
+    },
+    "clients-admin-feature-auth-login": {
+      "tags": ["lib", "client", "auth"]
+    },
     "clients-admin-feature-shell-shell": {
-      "tags": ["lib", "client", "admin"]
+      "tags": ["lib", "client", "shell"]
     }
   }
 }
