@@ -46,7 +46,11 @@
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [{ "target": "servers-ssr:build" }]
+            "targets": [
+              {
+                "target": "servers-ssr:build"
+              }
+            ]
           }
         }
       }
@@ -156,7 +160,11 @@
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [{ "target": "clients-admin:build:production" }]
+            "targets": [
+              {
+                "target": "clients-admin:build:production"
+              }
+            ]
           }
         }
       }
@@ -303,8 +311,62 @@
         "deploy": {
           "builder": "@angular-devkit/architect:concat",
           "options": {
-            "targets": [{ "target": "clients-portfolio:app-shell:production" }]
+            "targets": [
+              {
+                "target": "clients-portfolio:app-shell:production"
+              }
+            ]
           }
+        }
+      }
+    },
+    "clients-admin-feature-auth-logout": {
+      "projectType": "library",
+      "root": "libs/clients/admin/feature-auth/logout",
+      "sourceRoot": "libs/clients/admin/feature-auth/logout/src",
+      "prefix": "admin-logout",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/clients/admin/feature-auth/logout/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/clients/admin/feature-auth/logout/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "clients-admin-feature-auth-login": {
+      "projectType": "library",
+      "root": "libs/clients/admin/feature-auth/login",
+      "sourceRoot": "libs/clients/admin/feature-auth/login/src",
+      "prefix": "admin-login",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/clients/admin/feature-auth/login/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/clients/admin/feature-auth/login/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

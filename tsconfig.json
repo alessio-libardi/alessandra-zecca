@@ -15,7 +15,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@alessandra-zecca/clients/admin/feature-auth/logout": [
+        "libs/clients/admin/feature-auth/logout/src/index.ts"
+      ],
+      "@alessandra-zecca/clients/admin/feature-auth/login": [
+        "libs/clients/admin/feature-auth/login/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

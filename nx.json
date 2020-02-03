@@ -19,6 +19,12 @@
     },
     "clients-portfolio": {
       "tags": ["app", "client"]
+    },
+    "clients-admin-feature-auth-logout": {
+      "tags": ["lib", "client", "admin"]
+    },
+    "clients-admin-feature-auth-login": {
+      "tags": ["lib", "client", "admin"]
     }
   }
 }
