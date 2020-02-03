@@ -320,6 +320,31 @@
         }
       }
     },
+    "clients-admin-feature-shell-shell": {
+      "projectType": "library",
+      "root": "libs/clients/admin/feature-shell/shell",
+      "sourceRoot": "libs/clients/admin/feature-shell/shell/src",
+      "prefix": "alessandra-zecca",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/clients/admin/feature-shell/shell/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/clients/admin/feature-shell/shell/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
     "clients-admin-feature-auth-logout": {
       "projectType": "library",
       "root": "libs/clients/admin/feature-auth/logout",
