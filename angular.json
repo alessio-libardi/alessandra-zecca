@@ -96,7 +96,8 @@
             "aot": false,
             "assets": [
               "apps/clients/admin/src/favicon.ico",
-              "apps/clients/admin/src/assets"
+              "apps/clients/admin/src/assets",
+              "apps/clients/admin/src/manifest.webmanifest"
             ],
             "styles": ["apps/clients/admin/src/styles.scss"],
             "scripts": []
@@ -129,7 +130,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/clients/admin/ngsw-config.json"
             }
           }
         },
@@ -419,6 +422,13 @@
           "styleext": "scss"
         }
       }
+    },
+    "clients-shared-assets": {
+      "root": "libs/clients/shared/assets",
+      "sourceRoot": "libs/clients/shared/assets/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {}
     }
   },
   "cli": {

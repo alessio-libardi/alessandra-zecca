@@ -74,6 +74,14 @@
           {
             "sourceTag": "shared",
             "onlyDependOnLibsWithTags": ["shared"]
+          },
+          {
+            "sourceTag": "admin",
+            "onlyDependOnLibsWithTags": ["admin"]
+          },
+          {
+            "sourceTag": "portfolio",
+            "onlyDependOnLibsWithTags": ["portfolio"]
           }
         ]
       }
