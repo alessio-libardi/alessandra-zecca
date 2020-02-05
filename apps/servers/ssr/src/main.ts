@@ -8,17 +8,17 @@ import { AppModule } from './app/app.module';
 
 const server = express();
 
-export const createNestServer = async expressInstance => {
+export const createNestServer = async (expressInstance) => {
   const app = await NestFactory.create(
     AppModule,
-    new ExpressAdapter(expressInstance)
+    new ExpressAdapter(expressInstance),
   );
 
   return app.init();
 };
 
 createNestServer(server)
-  .then(v => console.log('Nest Ready'))
-  .catch(err => console.error('Nest broken', err));
+  .then((v) => console.log('Nest Ready'))
+  .catch((err) => console.error('Nest broken', err));
 
 export const ssr = functions.region('europe-west1').https.onRequest(server);

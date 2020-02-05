@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import {
-  AngularUniversalModule,
   applyDomino,
+  AngularUniversalModule,
   AngularUniversalOptions
 } from '@nestjs/ng-universal';
 import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -14,7 +14,7 @@ applyDomino(global, join(BROWSER_DIR, 'index.html'));
 
 const {
   AppServerModuleNgFactory,
-  LAZY_MODULE_MAP
+  LAZY_MODULE_MAP,
 } = require('/dist/apps/clients/portfolio/server/main.js');
 
 const OPTIONS: AngularUniversalOptions = {
@@ -23,11 +23,11 @@ const OPTIONS: AngularUniversalOptions = {
     AppServerModuleNgFactory,
     LAZY_MODULE_MAP,
     provideModuleMap,
-    ngExpressEngine
-  }
+    ngExpressEngine,
+  },
 };
 
 @Module({
-  imports: [AngularUniversalModule.forRoot(OPTIONS)]
+  imports: [AngularUniversalModule.forRoot(OPTIONS)],
 })
 export class AppModule {}

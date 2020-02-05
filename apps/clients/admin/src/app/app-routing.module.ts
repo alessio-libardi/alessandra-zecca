@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, ExtraOptions } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '**',
-    loadChildren: () => import('@alessandra-zecca/clients/admin/feature-shell/shell').then(m => m.ShellModule)
-  }
-]
-const config: ExtraOptions = {}
+    loadChildren: () => import('libs/clients/admin/feature-shell/src').then((m) => m.ShellModule),
+  },
+];
+const config: ExtraOptions = {};
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

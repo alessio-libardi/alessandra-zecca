@@ -14,7 +14,9 @@
     }
   ],
   "settings": {
-    "editor.formatOnSave": true,
-    "vsicons.presets.angular": true
+    "vsicons.presets.angular": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true
+    }
   }
 }

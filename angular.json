@@ -211,10 +211,7 @@
             "polyfills": "apps/clients/portfolio/src/polyfills.ts",
             "tsConfig": "apps/clients/portfolio/tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "apps/clients/portfolio/src/favicon.ico",
-              "apps/clients/portfolio/src/assets"
-            ],
+            "assets": ["apps/clients/portfolio/src/favicon.ico", "apps/clients/portfolio/src/assets"],
             "styles": ["apps/clients/portfolio/src/styles.scss"],
             "scripts": []
           },
@@ -323,22 +320,17 @@
         }
       }
     },
-    "clients-admin-feature-shell-shell": {
+    "clients-admin-feature-shell": {
       "projectType": "library",
-      "root": "libs/clients/admin/feature-shell/shell",
-      "sourceRoot": "libs/clients/admin/feature-shell/shell/src",
+      "root": "libs/clients/admin/feature-shell",
+      "sourceRoot": "libs/clients/admin/feature-shell/src",
       "prefix": "alessandra-zecca",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/clients/admin/feature-shell/shell/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/clients/admin/feature-shell/shell/**"
-            ]
+            "tsConfig": ["libs/clients/admin/feature-shell/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/clients/admin/feature-shell/**"]
           }
         }
       },
@@ -348,47 +340,17 @@
         }
       }
     },
-    "clients-admin-feature-auth-logout": {
+    "clients-admin-feature-auth": {
       "projectType": "library",
-      "root": "libs/clients/admin/feature-auth/logout",
-      "sourceRoot": "libs/clients/admin/feature-auth/logout/src",
-      "prefix": "admin-logout",
+      "root": "libs/clients/admin/feature-auth",
+      "sourceRoot": "libs/clients/admin/feature-auth/src",
+      "prefix": "admin-auth",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/clients/admin/feature-auth/logout/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/clients/admin/feature-auth/logout/**"
-            ]
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "clients-admin-feature-auth-login": {
-      "projectType": "library",
-      "root": "libs/clients/admin/feature-auth/login",
-      "sourceRoot": "libs/clients/admin/feature-auth/login/src",
-      "prefix": "admin-login",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/clients/admin/feature-auth/login/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/clients/admin/feature-auth/login/**"
-            ]
+            "tsConfig": ["libs/clients/admin/feature-auth/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/clients/admin/feature-auth/**"]
           }
         }
       },
@@ -407,13 +369,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/clients/admin/feature-main/main/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/clients/admin/feature-main/main/**"
-            ]
+            "tsConfig": ["libs/clients/admin/feature-main/main/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/clients/admin/feature-main/main/**"]
           }
         }
       },
