@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ShellComponent } from './pages/shell/shell.component';
+import { ShellComponent } from './page/shell/shell.component';
 
 const routes: Routes = [
   {
@@ -29,8 +29,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ShellComponent],
+  declarations: [MainComponent],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ShellRoutingModule {}
+export class MainRoutingModule {}

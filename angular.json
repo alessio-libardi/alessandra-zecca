@@ -360,17 +360,17 @@
         }
       }
     },
-    "clients-admin-feature-main-main": {
+    "clients-admin-feature-main": {
       "projectType": "library",
-      "root": "libs/clients/admin/feature-main/main",
-      "sourceRoot": "libs/clients/admin/feature-main/main/src",
+      "root": "libs/clients/admin/feature-main",
+      "sourceRoot": "libs/clients/admin/feature-main/src",
       "prefix": "admin-main",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/clients/admin/feature-main/main/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/clients/admin/feature-main/main/**"]
+            "tsConfig": ["libs/clients/admin/feature-main/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/clients/admin/feature-main/**"]
           }
         }
       },

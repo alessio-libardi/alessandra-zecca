@@ -26,7 +26,7 @@
     "clients-admin-feature-shell": {
       "tags": ["lib", "client", "admin"]
     },
-    "clients-admin-feature-main-main": {
+    "clients-admin-feature-main": {
       "tags": ["lib", "client", "admin"]
     },
     "clients-shared-assets": {
