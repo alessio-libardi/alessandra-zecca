@@ -31,6 +31,9 @@
     },
     "clients-shared-assets": {
       "tags": ["lib", "client", "shared"]
+    },
+    "clients-shared-styles": {
+      "tags": ["lib", "client", "shared"]
     }
   }
 }

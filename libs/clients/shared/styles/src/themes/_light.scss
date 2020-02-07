@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+$gpi-light-primary: mat-palette($mat-grey, 200, 500, 300);
+$gpi-light-accent: mat-palette($mat-brown, 200);
+$gpi-light-warn: mat-palette($mat-deep-orange, 200);
+
+$gpi-light-theme: mat-light-theme(
+  $gpi-light-primary,
+  $gpi-light-accent,
+  $gpi-light-warn
+);

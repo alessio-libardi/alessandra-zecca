@@ -100,7 +100,8 @@
               {
                 "input": "libs/clients/shared/assets/src",
                 "glob": "**/*",
-                "output": "assets"
+                "output": "assets",
+                "ignore": ["favicon.ico"]
               },
               {
                 "input": "libs/clients/shared/assets/src",
@@ -108,7 +109,13 @@
                 "output": "."
               }
             ],
-            "styles": ["apps/clients/admin/src/styles.scss"],
+            "styles": [
+              {
+                "input": "libs/clients/shared/styles/src/main.scss",
+                "bundleName": "alessandra-zecca-styles"
+              },
+              "apps/clients/admin/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -392,6 +399,13 @@
     "clients-shared-assets": {
       "root": "libs/clients/shared/assets",
       "sourceRoot": "libs/clients/shared/assets/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {}
+    },
+    "clients-shared-styles": {
+      "root": "libs/clients/shared/styles",
+      "sourceRoot": "libs/clients/shared/styles/src",
       "projectType": "library",
       "schematics": {},
       "architect": {}
