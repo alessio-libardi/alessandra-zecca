@@ -1,0 +1,7 @@
+{
+  "extends": "../../../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "adminShell", "camelCase"],
+    "component-selector": [true, "element", "admin-shell", "kebab-case"]
+  }
+}

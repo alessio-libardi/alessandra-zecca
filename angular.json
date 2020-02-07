@@ -95,10 +95,27 @@
             "tsConfig": "apps/clients/admin/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "apps/clients/admin/src/favicon.ico",
-              "apps/clients/admin/src/assets"
+              "apps/clients/admin/src/assets",
+              "apps/clients/admin/src/manifest.webmanifest",
+              {
+                "input": "libs/clients/shared/assets/src",
+                "glob": "**/*",
+                "output": "assets",
+                "ignore": ["favicon.ico"]
+              },
+              {
+                "input": "libs/clients/shared/assets/src",
+                "glob": "favicon.ico",
+                "output": "."
+              }
             ],
-            "styles": ["apps/clients/admin/src/styles.scss"],
+            "styles": [
+              {
+                "input": "libs/clients/shared/styles/src/main.scss",
+                "bundleName": "alessandra-zecca-styles"
+              },
+              "apps/clients/admin/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -129,7 +146,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/clients/admin/ngsw-config.json"
             }
           }
         },
@@ -208,10 +227,7 @@
             "polyfills": "apps/clients/portfolio/src/polyfills.ts",
             "tsConfig": "apps/clients/portfolio/tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "apps/clients/portfolio/src/favicon.ico",
-              "apps/clients/portfolio/src/assets"
-            ],
+            "assets": ["apps/clients/portfolio/src/favicon.ico", "apps/clients/portfolio/src/assets"],
             "styles": ["apps/clients/portfolio/src/styles.scss"],
             "scripts": []
           },
@@ -320,22 +336,17 @@
         }
       }
     },
-    "clients-admin-feature-shell-shell": {
+    "clients-admin-feature-shell": {
       "projectType": "library",
-      "root": "libs/clients/admin/feature-shell/shell",
-      "sourceRoot": "libs/clients/admin/feature-shell/shell/src",
+      "root": "libs/clients/admin/feature-shell",
+      "sourceRoot": "libs/clients/admin/feature-shell/src",
       "prefix": "alessandra-zecca",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/clients/admin/feature-shell/shell/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/clients/admin/feature-shell/shell/**"
-            ]
+            "tsConfig": ["libs/clients/admin/feature-shell/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/clients/admin/feature-shell/**"]
           }
         }
       },
@@ -345,22 +356,17 @@
         }
       }
     },
-    "clients-admin-feature-auth-logout": {
+    "clients-admin-feature-auth": {
       "projectType": "library",
-      "root": "libs/clients/admin/feature-auth/logout",
-      "sourceRoot": "libs/clients/admin/feature-auth/logout/src",
-      "prefix": "admin-logout",
+      "root": "libs/clients/admin/feature-auth",
+      "sourceRoot": "libs/clients/admin/feature-auth/src",
+      "prefix": "admin-auth",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/clients/admin/feature-auth/logout/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/clients/admin/feature-auth/logout/**"
-            ]
+            "tsConfig": ["libs/clients/admin/feature-auth/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/clients/admin/feature-auth/**"]
           }
         }
       },
@@ -370,47 +376,17 @@
         }
       }
     },
-    "clients-admin-feature-auth-login": {
+    "clients-admin-feature-main": {
       "projectType": "library",
-      "root": "libs/clients/admin/feature-auth/login",
-      "sourceRoot": "libs/clients/admin/feature-auth/login/src",
-      "prefix": "admin-login",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/clients/admin/feature-auth/login/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/clients/admin/feature-auth/login/**"
-            ]
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "clients-admin-feature-main-main": {
-      "projectType": "library",
-      "root": "libs/clients/admin/feature-main/main",
-      "sourceRoot": "libs/clients/admin/feature-main/main/src",
+      "root": "libs/clients/admin/feature-main",
+      "sourceRoot": "libs/clients/admin/feature-main/src",
       "prefix": "admin-main",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/clients/admin/feature-main/main/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/clients/admin/feature-main/main/**"
-            ]
+            "tsConfig": ["libs/clients/admin/feature-main/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/clients/admin/feature-main/**"]
           }
         }
       },
@@ -419,6 +395,20 @@
           "styleext": "scss"
         }
       }
+    },
+    "clients-shared-assets": {
+      "root": "libs/clients/shared/assets",
+      "sourceRoot": "libs/clients/shared/assets/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {}
+    },
+    "clients-shared-styles": {
+      "root": "libs/clients/shared/styles",
+      "sourceRoot": "libs/clients/shared/styles/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {}
     }
   },
   "cli": {
