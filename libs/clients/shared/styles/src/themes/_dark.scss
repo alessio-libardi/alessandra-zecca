@@ -1,11 +1,7 @@
 @import '~@angular/material/theming';
 
-$gpi-dark-primary: mat-palette($mat-grey, 700, 300, 900);
-$gpi-dark-accent: mat-palette($mat-blue-grey, 400);
-$gpi-dark-warn: mat-palette($mat-red, 500);
+$theme-dark-primary: mat-palette($mat-grey, 700, 300, 900);
+$theme-dark-accent: mat-palette($mat-blue-grey, 400);
+$theme-dark-warn: mat-palette($mat-red, 500);
 
-$gpi-dark-theme: mat-dark-theme(
-  $gpi-dark-primary,
-  $gpi-dark-accent,
-  $gpi-dark-warn
-);
+$theme-dark: mat-dark-theme($theme-dark-primary, $theme-dark-accent, $theme-dark-warn);
