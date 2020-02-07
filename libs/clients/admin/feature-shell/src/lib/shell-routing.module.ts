@@ -10,19 +10,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        pathMatch: 'full',
-        canActivate: [],
         loadChildren: () => import('@alessandra-zecca/clients/admin/feature-auth').then((m) => m.AuthModule),
       },
       {
         path: '',
-        pathMatch: 'full',
-        canActivate: [],
         loadChildren: () => import('@alessandra-zecca/clients/admin/feature-main').then((m) => m.MainModule),
-      },
-      {
-        path: '**',
-        redirectTo: 'home',
       },
     ],
   },

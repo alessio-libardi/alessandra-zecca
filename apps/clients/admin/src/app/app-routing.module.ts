@@ -3,7 +3,7 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '**',
+    path: '',
     loadChildren: () => import('libs/clients/admin/feature-shell/src').then((m) => m.ShellModule),
   },
 ];

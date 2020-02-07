@@ -95,9 +95,18 @@
             "tsConfig": "apps/clients/admin/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "apps/clients/admin/src/favicon.ico",
               "apps/clients/admin/src/assets",
-              "apps/clients/admin/src/manifest.webmanifest"
+              "apps/clients/admin/src/manifest.webmanifest",
+              {
+                "input": "libs/clients/shared/assets/src",
+                "glob": "**/*",
+                "output": "assets"
+              },
+              {
+                "input": "libs/clients/shared/assets/src",
+                "glob": "favicon.ico",
+                "output": "."
+              }
             ],
             "styles": ["apps/clients/admin/src/styles.scss"],
             "scripts": []

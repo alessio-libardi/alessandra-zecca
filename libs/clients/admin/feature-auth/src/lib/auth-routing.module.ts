@@ -32,6 +32,10 @@ const routes: Routes = [
         pathMatch: 'full',
         component: RegisterComponent,
       },
+      {
+        path: '**',
+        redirectTo: 'login',
+      },
     ],
   },
 ];
