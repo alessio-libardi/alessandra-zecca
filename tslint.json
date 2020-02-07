@@ -124,7 +124,7 @@
     "import-spacing": true,
     "indent": [true, "spaces", 2],
     "jsdoc-format": [true, "check-multiline-start"],
-    "linebreak-style": [true, "CRLF"],
+    "linebreak-style": [true, "LF"],
     "newline-before-return": true,
     "new-parens": true,
     "no-consecutive-blank-lines": true,
