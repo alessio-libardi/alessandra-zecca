@@ -9,10 +9,7 @@ import { AppModule } from './app/app.module';
 const server = express();
 
 export const createNestServer = async (expressInstance) => {
-  const app = await NestFactory.create(
-    AppModule,
-    new ExpressAdapter(expressInstance),
-  );
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(expressInstance));
 
   return app.init();
 };

@@ -6,4 +6,4 @@ import { environment } from './../../environments/environment';
 @NgModule({
   imports: [ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
 })
-export class CoreModule { }
+export class CoreModule {}
