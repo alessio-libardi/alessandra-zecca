@@ -75,7 +75,8 @@
             "sourceTag": "portfolio",
             "onlyDependOnLibsWithTags": ["portfolio"]
           }
-        ]
+        ],
+        "enforceBuildableLibDependency": true
       }
     ],
     "directive-selector": [true, "attribute", "app", "camelCase"],
@@ -92,7 +93,6 @@
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
-
     "ordered-imports": [
       true,
       {
@@ -117,7 +117,6 @@
         ]
       }
     ],
-
     "align": [true, "arguments", "elements", "members", "parameters", "statements"],
     "arrow-parens": true,
     "eofline": true,
