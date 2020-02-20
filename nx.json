@@ -34,6 +34,9 @@
     },
     "clients-shared-styles": {
       "tags": ["lib", "client", "shared"]
+    },
+    "clients-admin-feature-shared": {
+      "tags": ["lib", "client", "admin"]
     }
   }
 }
