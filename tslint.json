@@ -105,8 +105,8 @@
             "order": 10
           },
           {
-            "name": "Third-party imports",
-            "match": "^rxjs",
+            "name": "Alessandra Zecca imports",
+            "match": "^@alessandra-zecca",
             "order": 20
           },
           {

@@ -1,3 +1,4 @@
+import { SharedModule } from '@alessandra-zecca/clients/admin/feature-shared';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -13,7 +14,7 @@ const routes: Routes = [
     component: AuthComponent,
     children: [
       {
-        path: 'login',
+        path: '',
         pathMatch: 'full',
         component: LoginComponent,
       },
@@ -32,17 +33,12 @@ const routes: Routes = [
         pathMatch: 'full',
         component: RegisterComponent,
       },
-      {
-        path: '**',
-        redirectTo: 'login',
-      },
     ],
   },
 ];
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, LogoutComponent, PasswordRecoveryComponent, RegisterComponent],
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  imports: [SharedModule, RouterModule.forChild(routes)],
 })
 export class AuthRoutingModule {}

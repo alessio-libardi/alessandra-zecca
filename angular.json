@@ -409,6 +409,26 @@
       "projectType": "library",
       "schematics": {},
       "architect": {}
+    },
+    "clients-admin-feature-shared": {
+      "projectType": "library",
+      "root": "libs/clients/admin/feature-shared",
+      "sourceRoot": "libs/clients/admin/feature-shared/src",
+      "prefix": "admin-shared",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/clients/admin/feature-shared/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/clients/admin/feature-shared/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

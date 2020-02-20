@@ -1,3 +1,4 @@
+import { SharedModule } from '@alessandra-zecca/clients/admin/feature-shared';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -16,13 +17,16 @@ const routes: Routes = [
         path: '',
         loadChildren: () => import('@alessandra-zecca/clients/admin/feature-main').then((m) => m.MainModule),
       },
+      {
+        path: '**',
+        redirectTo: '/login',
+      },
     ],
   },
 ];
 
 @NgModule({
   declarations: [ShellComponent],
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  imports: [SharedModule, RouterModule.forChild(routes)],
 })
 export class ShellRoutingModule {}
