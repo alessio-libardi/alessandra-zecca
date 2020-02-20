@@ -1,0 +1,33 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
+
+// 2. Vendors
+@import 'vendors/normalize';
+
+// 3. Base stuff
+@import 'base/base', 'base/fonts', 'base/typography', 'base/helpers';
+
+// 4. Layout-related sections
+
+// 5. Components
+
+// 6. Page-specific styles
+@import 'pages/noscript';
+
+// 7. Themes
+@import 'themes/dark';
+@import 'themes/light';
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+.light-theme {
+  @include angular-material-theme($theme-light);
+}
+.dark-theme {
+  @include angular-material-theme($theme-dark);
+}
+
+@include angular-material-theme($theme-light);

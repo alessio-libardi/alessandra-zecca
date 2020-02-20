@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@alessandra-zecca/clients/admin/feature-auth": ["libs/clients/admin/feature-auth/src/index.ts"],
+      "@alessandra-zecca/clients/admin/feature-shell": ["libs/clients/admin/feature-shell/src/index.ts"],
+      "@alessandra-zecca/clients/admin/feature-main": ["libs/clients/admin/feature-main/src/index.ts"],
+      "@alessandra-zecca/clients/admin/feature-shared": ["libs/clients/admin/feature-shared/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

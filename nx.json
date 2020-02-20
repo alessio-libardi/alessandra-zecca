@@ -1,5 +1,5 @@
 {
-  "npmScope": "chromosomexx",
+  "npmScope": "alessandra-zecca",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
@@ -11,14 +11,32 @@
     "nx.json": "*"
   },
   "projects": {
-    "ui-portfolio": {
-      "tags": []
-    },
-    "ui-admin": {
-      "tags": ["app", "ui"]
-    },
-    "server-ssr": {
+    "servers-ssr": {
       "tags": ["app", "server"]
+    },
+    "clients-admin": {
+      "tags": ["app", "client"]
+    },
+    "clients-portfolio": {
+      "tags": ["app", "client"]
+    },
+    "clients-admin-feature-auth": {
+      "tags": ["lib", "client", "admin"]
+    },
+    "clients-admin-feature-shell": {
+      "tags": ["lib", "client", "admin"]
+    },
+    "clients-admin-feature-main": {
+      "tags": ["lib", "client", "admin"]
+    },
+    "clients-shared-assets": {
+      "tags": ["lib", "client", "shared"]
+    },
+    "clients-shared-styles": {
+      "tags": ["lib", "client", "shared"]
+    },
+    "clients-admin-feature-shared": {
+      "tags": ["lib", "client", "admin"]
     }
   }
 }

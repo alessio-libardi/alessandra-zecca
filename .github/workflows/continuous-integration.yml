@@ -18,20 +18,6 @@ jobs:
         with:
           node-version: '12.x'
 
-      - name: Get dependencies cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache Dependencies
-        uses: actions/cache@v1
-        id: cache-dependencies
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Install Dependencies
         run: npm ci
 
@@ -49,20 +35,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-
-      - name: Get dependencies cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache Dependencies
-        uses: actions/cache@v1
-        id: cache-dependencies
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
       - name: Install Dependencies
         run: npm ci
